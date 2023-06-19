@@ -69,7 +69,8 @@ export const login = async(req, res) =>{
         const token = jwt.sign(payload, process.env.JWT, {
             expiresIn:"1h",
         })
-        return res.status(200).json({token})
+        const user={...doesUserExits._doc, password:undefined};
+        return res.status(200).json({token, user})
     }
     catch(err){
         console.log(err);
