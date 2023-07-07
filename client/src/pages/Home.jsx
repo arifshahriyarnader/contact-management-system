@@ -9,9 +9,13 @@ const Home = () => {
         !user && navigate("/login", {replace:true})
     }, [])
     return (
-        <div>
-            <h1>This is home page</h1>
-        </div>
+       <>
+       <div className="jumbotron">
+  <h1 className="display-4">Welcome {user ? user.name : null}</h1>
+ <hr className='my-4' />
+    <a className="btn btn-primary" href="#" role="button">Add Contacts</a>
+</div>
+       </>
     );
 };
 

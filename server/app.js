@@ -22,9 +22,11 @@ app.use(cors());
 // app.get('/protected', auth, (req,res) =>{
 //     return res.status(200).json({...req.user._doc})
 // })
-app.use('/api/auth', authRoute);
-app.use('/api', contactRoute);
 
+app.use('/api/auth', authRoute);
+app.use('/api/contact', contactRoute);
+
+  
 //server
 const PORT= process.env.PORT || 5000;
 app.listen(PORT, async() =>{

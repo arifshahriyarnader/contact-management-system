@@ -22,6 +22,22 @@ const ContactSchema =new mongoose.Schema({
         ref:"User",
     },
 });
+//const Contact = new mongoose.model("Contact", ContactSchema);
 
+const validateContact =(data) =>{
+    const schema = Joi.object({
+        name: Joi.string().min(4).max(50).required(),
+        address: Joi.string().min(4).max(100).required(),
+        email: Joi.string().email().required(),
+        phone: Joi.number().min(11).max(10000000000).required()
 
-export default mongoose.model("Contact", ContactSchema);
+    })
+    return schema.validate(data)
+}
+
+// module.exports = {
+//     validateContact,
+//     Contact,
+//   };
+
+export default mongoose.model("Contact", ContactSchema, "contacts");

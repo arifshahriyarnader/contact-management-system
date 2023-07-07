@@ -19,14 +19,19 @@ const Navbar =({title= "CMS"}) =>{
     <div className="collapse navbar-collapse" id="navbarColor01">
       <ul className="navbar-nav ms-auto">
         {user ? (
-          <> <li className="nav-item" onClick={() =>{
+          <>
+            <li className="nav-item">
+            <Link className="nav-link" to="/create">Create</Link>
+        </li>
+           <li className="nav-item" onClick={() =>{
             setUser(null);
             localStorage.clear();
             toast.success("Logged Out")
             navigate("/login", {replace:true})
           }}>
           <button className="btn btn-danger">Logout</button>
-          </li></>
+          </li>
+          </>
         ) : (
           <><li className="nav-item">
             <Link className="nav-link" to="/login">Login</Link>
